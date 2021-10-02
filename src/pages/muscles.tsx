@@ -63,11 +63,10 @@ const MuscleLayout: React.FC<MuscleLayoutProps> = ({ data }) => {
 		}, 50)
 	}
 	if (!isDesktop) {
-		console.log("mobile")
 		return (
 			<div>
 				<Flex bg="white">
-					<Center height="76vh" width="100vw">
+					<Center width="100vw">
 						<Image width={651} height={1055} src={humanBody} alt="human body picture" />
 					</Center>
 				</Flex>
