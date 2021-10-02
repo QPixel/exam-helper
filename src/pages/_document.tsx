@@ -1,3 +1,4 @@
+import { ColorModeScript } from '@chakra-ui/color-mode';
 import createEmotionServer from '@emotion/server/create-instance';
 import Document, {
     Html,
@@ -7,6 +8,7 @@ import Document, {
     DocumentContext,
 } from "next/document";
 import * as React from "react";
+import customTheme from '../styles/theme';
 import createEmotionCache from "../utils/emotionCache";
 
 class MyDocument extends Document {
@@ -43,16 +45,20 @@ class MyDocument extends Document {
             ],
         };
     }
-	render() {
-		return (
-			<Html lang="en">
-				<body>
-					<Main />
-					<NextScript />
-				</body>
-			</Html>
-		)
-	}
+    render() {
+        return (
+            <Html lang="en">
+                <Head>
+                    <link rel="manifest" href="/manifest.json" />
+                </Head>
+                <body>
+                    <ColorModeScript initialColorMode={customTheme.config.initialColorMode} />
+                    <Main />
+                    <NextScript />
+                </body>
+            </Html>
+        )
+    }
 }
 
 export default MyDocument;
